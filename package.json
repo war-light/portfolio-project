@@ -1,5 +1,5 @@
 {
-  "name": "vital",
+  "name": "jd-space-portfolio",
   "type": "module",
   "version": "1.0.0",
   "description": "Starter template for Vite with React (TypeScript). Supports Tailwind. Vitest and @react/testing-library configured and ready to go. Also ESLint, Prettier, Husky, Commit-lint and Atomic Design for components.",
@@ -8,7 +8,7 @@
     "type": "git",
     "url": "git+https://github.com/jvidalv/vital.git"
   },
-  "author": "Josep Vidal <josepvidalvidal@gmail.com>",
+  "author": "David González",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/jvidalv/vital/issues"
@@ -41,11 +41,12 @@
   "dependencies": {
     "@heroicons/react": "2.1.5",
     "react": "18.3.1",
-    "react-dom": "18.3.1"
+    "react-dom": "18.3.1",
+    "react-router": "^7.2.0"
   },
   "devDependencies": {
-    "@eslint/js": "9.13.0",
     "@commitlint/cli": "19.5.0",
+    "@eslint/js": "9.13.0",
     "@tailwindcss/forms": "0.5.9",
     "@types/react": "18.3.12",
     "@types/react-dom": "18.3.1",

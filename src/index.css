@@ -3,27 +3,29 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-  }
+}
+h1 {
+  @apply text-5xl text-yellow-200 font-literata;
+}
+h2 {
+  @apply text-4xl text-yellow-200 font-literata;
+}
+h3 {
+  @apply text-2xl text-white font-literata;
+}
 
-  @keyframes slide {
-    100% {
-      background-position: 50px 0, 125px 25px;
-    }
-  }
+@font-face {
+  font-family: "literata";
+  src: url("./fonts/Literata-Italic-VariableFont_opsz,wght.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+}
 
-  main {
-    @apply px-4 min-h-screen sm:px-0 space-y-16 w-full bg-gray-900;
-    background-image: radial-gradient(
-        hsla(0, 0%, 84.3%, 0.25) 1px,
-        transparent 0
-      ),
-      radial-gradient(hsla(0, 0%, 84.3%, 0.1) 1px, transparent 0);
-    background-size: 50px 50px;
-    background-position: 0 0, 25px 25px;
-    -webkit-animation: slide 2s linear infinite;
-    animation: slide 4s linear infinite;
-  }
+@font-face {
+  font-family: "MiFuente2";
+  src:
+    url("/fonts/MiFuente2.woff2") format("woff2"),
+    url("/fonts/MiFuente2.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
