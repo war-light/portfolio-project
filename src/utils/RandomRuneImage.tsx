@@ -29,9 +29,9 @@ export default function RandomRuneImage() {
       className="w-16 h-16 mb-2"
       style={{
         WebkitMaskImage:
-          "radial-gradient(circle, rgba(0,0,0,1) 5%, rgba(0,0,0,0) 95%)",
+          "radial-gradient(circle, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%)",
         maskImage:
-          "radial-gradient(circle, rgba(0,0,0,1) 5%, rgba(0,0,0,0) 100%)",
+          "radial-gradient(circle, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%)",
         maskRepeat: "no-repeat",
         maskPosition: "center",
       }}
