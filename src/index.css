@@ -5,13 +5,13 @@
 @layer base {
 }
 h1 {
-  @apply text-5xl text-yellow-200 font-literata;
+  @apply text-5xl lg:text-7xl text-yellow-200 font-literata;
 }
 h2 {
-  @apply text-4xl text-yellow-200 font-literata;
+  @apply text-4xl lg:text-6xl text-yellow-200 font-literata;
 }
 h3 {
-  @apply text-2xl text-white font-literata;
+  @apply text-2xl lg:text-5xl text-white font-literata;
 }
 
 @font-face {
