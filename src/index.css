@@ -1,31 +1,51 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
+@theme {
+  /* Define the Hextech Palette */
+  --color-hextech-black: #0a0a0c;
+  --color-hextech-blue: #091428;   /* Deep Blue */
+  --color-hextech-bronze: #785a28; /* Dark Gold/Bronze */
+  --color-hextech-gold: #c8aa6e;   /* Main Gold */
+  --color-hextech-light: #f0e6d2;  /* Parchment */
+  --color-hextech-glass: rgba(10, 10, 12, 0.8);
+  
+  /* Fonts */
+  --font-literata: "Literata", serif;
+  
+  /* Animations */
+  --animate-fade-in: fadeIn 0.5s ease-out;
+  --animate-slide-up: slideInUp 0.7s ease-out;
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes slideInUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+}
+
+/* Base Styles */
 @layer base {
-}
-h1 {
-  @apply text-5xl lg:text-7xl text-yellow-200 font-literata;
-}
-h2 {
-  @apply text-4xl lg:text-6xl text-yellow-200 font-literata;
-}
-h3 {
-  @apply text-2xl lg:text-5xl text-white font-literata;
-}
-
-@font-face {
-  font-family: "literata";
-  src: url("./fonts/Literata-Italic-VariableFont_opsz,wght.ttf") format("ttf");
-  font-weight: normal;
-  font-style: normal;
+  body {
+    @apply bg-hextech-black text-hextech-light font-literata antialiased overflow-x-hidden;
+  }
+  
+  /* Typography overrides */
+  h1, h2, h3, h4 {
+    @apply uppercase tracking-widest font-bold;
+  }
 }
 
-@font-face {
-  font-family: "MiFuente2";
-  src:
-    url("/fonts/MiFuente2.woff2") format("woff2"),
-    url("/fonts/MiFuente2.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
+/* Custom Utilities for that "Magical" look */
+@utility text-glow {
+  text-shadow: 0 0 10px rgba(200, 170, 110, 0.5);
+}
+
+@utility border-gradient-gold {
+  border: 1px solid transparent;
+  background: 
+    linear-gradient(to bottom, #091428, #0a0a0c) padding-box,
+    linear-gradient(to bottom, #c8aa6e, #785a28, #c8aa6e) border-box;
 }

@@ -1,43 +1,43 @@
-import { useState } from "react"
-import RandomRuneImage from "../../../utils/RandomRuneImage"
+import { useState } from "react";
+import { Card } from "@/components/ui/card";
+
+const RandomRuneImage = () => <div className="text-4xl text-hextech-gold">ᚠ</div>;
 
 interface SkillBoxProps {
-  iconName: string
+  iconName: string;
 }
 
 export default function SkillBox({ iconName }: SkillBoxProps) {
-  const [flipped, setFlipped] = useState(false)
-  const iconSource = "https://skillicons.dev/icons?i="
-
-  function handleClick() {
-    setFlipped((prev) => !prev)
-  }
+  const [flipped, setFlipped] = useState(false);
+  const iconSource = "https://skillicons.dev/icons?i=";
 
   return (
-    <div onClick={handleClick} className="w-24 h-32 perspective cursor-pointer select-none">
+    <div
+      onClick={() => setFlipped(!flipped)}
+      className="group w-24 h-32 perspective-[1000px] cursor-pointer select-none"
+    >
       <div
-        className={`relative w-full h-full transition-transform duration-500 transform-style-preserve-3d ${
-          flipped ? "rotate-y-180" : ""
-        }`}>
-        
-        {/* Front side */}
-        <div className="absolute w-full h-full bg-neutral-800 rounded-lg border border-darkerGold hover:border-gold hover:bg-neutral-700 backface-hidden flex flex-col justify-center items-center">
-          <img
-            src={`${iconSource}${iconName}`}
-            alt={iconName}
-            className="w-10 h-full mb-2"
-            onDragStart={(e) => e.preventDefault()}
-          />
-          <div className="justify-center content-center flex border-t border-darkerGold p-2 rounded-b-lg w-full">
-            <p className="text-neutral-200">{iconName}</p>
+        className={`relative w-full h-full transition-transform duration-500 transform-3d ${flipped ? "transform-[rotateY(180deg)]" : ""}`}
+      >
+        {/* Front */}
+        <Card className="absolute inset-0 border-hextech-bronze bg-linear-to-b from-[#1e2328] to-hextech-black backface-hidden flex flex-col items-center justify-between p-0 hover:border-hextech-gold hover:shadow-[0_0_15px_rgba(200,170,110,0.3)] transition-all">
+          <div className="grow flex items-center justify-center pt-2">
+            <img src={`${iconSource}${iconName}`} alt={iconName} className="w-10 h-10 drop-shadow-md" />
           </div>
-        </div>
+          <div className="w-full border-t border-hextech-bronze/50 bg-hextech-blue/80 py-2 flex justify-center rounded-b-lg">
+            <span className="text-xs uppercase tracking-widest text-hextech-light/70 group-hover:text-hextech-light">
+              {iconName}
+            </span>
+          </div>
+        </Card>
 
-        {/* Back side */}
-        <div className="absolute w-full h-full bg-neutral-700 rounded-lg border border-gold rotate-y-180 backface-hidden flex items-center justify-center">
-          <RandomRuneImage />
-        </div>
+        {/* Back */}
+        <Card className="absolute inset-0 border-hextech-gold bg-hextech-black transform-[rotateY(180deg)] backface-hidden flex items-center justify-center shadow-[0_0_15px_#c8aa6e]">
+          <div className="opacity-80 sepia brightness-125 animate-pulse">
+            <RandomRuneImage />
+          </div>
+        </Card>
       </div>
     </div>
-  )
+  );
 }
