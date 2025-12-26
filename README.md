@@ -5,7 +5,7 @@ A personal portfolio website, slightly inspired by the aesthetic from _League of
 
 ## ✅ To do:
 
-- **Responsive Design**: Optimized for all devices, from mobile scrolls to desktop displays.
+- **Responsive Design**: Optimize for all devices, from mobile scrolls to desktop displays.
 - **shadcn/ui**: Get rid of this.
 
 ## 🛠️ Tech Stack
