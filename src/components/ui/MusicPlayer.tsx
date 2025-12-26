@@ -38,7 +38,7 @@ const MusicPlayer = () => {
 
   return (
     <div className="fixed bottom-6 right-6 z-40 flex items-center justify-center">
-      <audio ref={audioRef} src={currentTrack.src} loop />
+      <audio ref={audioRef} src={`${import.meta.env.BASE_URL}${currentTrack.src}`} loop />
 
       <div className="relative group">
         {/* Glow Effect */}
