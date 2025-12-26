@@ -1,9 +1,4 @@
-# Hextech Portfolio
-
-<p align='center'>
-  <img src='https://i.imgur.com/KVmyXyo.png' alt='Hextech Portfolio' width='600'/>
-</p>
-
+# David G
 A personal portfolio website, slightly inspired by the aesthetic from _League of Legends Universe_ websites and _Arcane_ aesthetics.
 
 - **Interactive Dialog System**: A JRPG-style dialog system where "Dust" (the guide) interacts with the user.

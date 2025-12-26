@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useDialogStore } from "@/stores/useDialogStore";
-import { FormEvent, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import { FormEvent, useRef, useState } from "react";
 
 export default function ContactMe() {
   const [isSent, setIsSent] = useState(false);

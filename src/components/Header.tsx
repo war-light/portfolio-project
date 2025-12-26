@@ -23,7 +23,7 @@ const Header = () => {
           <Link to="/" className="group relative">
             <div className="w-8 h-8 bg-linear-to-br from-hextech-gold to-hextech-bronze rotate-45 border border-hextech-light shadow-[0_0_10px_#c8aa6e]">
               <div className="absolute inset-1 bg-hextech-black flex items-center justify-center">
-                <span className="text-hextech-gold font-bold text-xs -rotate-45">DG</span>
+                <span className="text-hextech-gold font-bold text-xs -rotate-45">JD</span>
               </div>
             </div>
           </Link>
@@ -31,6 +31,7 @@ const Header = () => {
           {/* Links */}
           <div className="hidden md:flex items-center gap-8">
             <NavLink to="/" label="Home" />
+            <NavLink to="/contact" label="Contact" />
             <NavLink to="/curriculum" label="Curriculum" />
           </div>
         </nav>

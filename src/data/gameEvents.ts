@@ -98,7 +98,7 @@ export const GAME_EVENTS: Record<string, GameEvent> = {
     id: "JD",
     type: "DIALOG",
     text: "As if it wasn't clear enough.",
-    characterName: "JD",
+    characterName: "Dust",
   },
   VIM: {
     id: "VIM",
@@ -159,7 +159,7 @@ export const GAME_EVENTS: Record<string, GameEvent> = {
     action: ({ showDialog }) => {
       const dialogs = [
         "So... I think reloading the page will do the work",
-        "I walked a mile with Pleasure; She chattered all the way, But left me none the wiser For all she had to say. I walked a mile with Sorrow And ne'er a word said she; But oh, the things I learned from her When Sorrow walked with me!",
+        "I walked a mile with Pleasure; she chattered all the way, but left me none the wiser for all she had to say. I walked a mile with Sorrow and never a word said she; but oh, the things I learned from her when Sorrow walked with me!",
         "Will I be relieved of this burden?",
       ];
       showDialog(dialogs[Math.floor(Math.random() * dialogs.length)], "Dust (Reborn)");

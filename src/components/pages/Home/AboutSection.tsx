@@ -2,7 +2,7 @@ import { Card } from "@/components/ui/card";
 
 export const AboutSection = () => {
   return (
-    <section className="hextech-section-wrapper">
+    <section id="about" className="hextech-section-wrapper">
       <div className="hextech-bg-decoration" />
       <Card className="hextech-card">
         {/* Corner Accents */}

@@ -34,9 +34,9 @@ const DialogBox = () => {
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 animate-slide-up">
       <div className="container mx-auto px-4 pb-6">
-        <div className="flex gap-4 bg-hextech-glass backdrop-blur-md border-gradient-gold rounded-lg shadow-2xl overflow-hidden">
+        <div className="flex flex-col md:flex-row gap-4 bg-hextech-glass backdrop-blur-md border-gradient-gold rounded-lg shadow-2xl overflow-hidden">
           {/* Character Box */}
-          <div className="w-48 h-48 bg-hextech-blue border-r-2 border-hextech-bronze flex items-center justify-center shrink-0">
+          <div className="w-full md:w-48 h-32 md:h-48 bg-hextech-blue border-b-2 md:border-b-0 md:border-r-2 border-hextech-bronze flex items-center justify-center shrink-0">
             {characterImage ? (
               <img src={characterImage} alt={characterName} className="w-full h-full object-cover" />
             ) : (
@@ -50,22 +50,24 @@ const DialogBox = () => {
           </div>
 
           {/* Dialog Text Area */}
-          <div className="flex-1 p-6 flex flex-col justify-between min-h-48">
+          <div className="flex-1 p-4 md:p-6 flex flex-col justify-between min-h-32 md:min-h-48">
             {/* Character Name */}
             {characterName && (
-              <div className="text-hextech-gold font-bold uppercase tracking-widest text-sm mb-3 text-glow">
+              <div className="text-hextech-gold font-bold uppercase tracking-widest text-sm mb-2 md:mb-3 text-glow">
                 {characterName}
               </div>
             )}
 
             {/* Dialog Text */}
-            <div className="flex-1 text-hextech-light leading-relaxed text-lg">{displayedText}</div>
+            <div className="flex-1 text-hextech-light leading-relaxed text-base md:text-lg">
+              {displayedText}
+            </div>
 
             {/* Click to Close Indicator */}
-            <div className="flex justify-end items-center gap-2 mt-4">
+            <div className="flex justify-end items-center gap-2 mt-2 md:mt-4">
               <button
                 onClick={hideDialog}
-                className="text-hextech-bronze hover:text-hextech-gold transition-colors text-sm uppercase tracking-wider font-semibold"
+                className="text-hextech-bronze hover:text-hextech-gold transition-colors text-xs md:text-sm uppercase tracking-wider font-semibold"
               >
                 Close
               </button>
