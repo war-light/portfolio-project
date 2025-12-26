@@ -19,7 +19,7 @@ const Header = () => {
       <div className="flex items-center justify-between px-6 lg:px-56 py-4 relative z-10">
         {/* --- Left: Navigation --- */}
         <nav className="flex items-center gap-10">
-          {/* Logo / Home Icon concept (Optional) */}
+          {/* Logo  */}
           <Link to="/" className="group relative">
             <div className="w-8 h-8 bg-linear-to-br from-hextech-gold to-hextech-bronze rotate-45 border border-hextech-light shadow-[0_0_10px_#c8aa6e]">
               <div className="absolute inset-1 bg-hextech-black flex items-center justify-center">
@@ -45,7 +45,7 @@ const Header = () => {
             <div className="w-1 h-1 bg-hextech-gold rotate-45" />
           </div>
 
-          {/* Theme Toggle (Rune Slot Style) */}
+          {/* Interactions Toggle (Rune Slot Style) */}
           <Button
             variant="ghost"
             size="icon"
@@ -68,7 +68,7 @@ const Header = () => {
             {/* Hover Glow Background */}
             <div className="absolute inset-0 bg-hextech-gold/10 rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 blur-md" />
 
-            {/* Hexagon Border (Optional visual) */}
+            {/* Hexagon Border */}
             <div className="absolute inset-0 border border-hextech-bronze/30 rotate-45 scale-75 group-hover:border-hextech-gold group-hover:rotate-90 transition-all duration-500 active:animate-shake" />
 
             <SunIcon
