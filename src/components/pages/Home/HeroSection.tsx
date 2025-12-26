@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { SocialButton } from "@/components/ui/SocialButton";
+import { useDialogStore } from "@/stores/useDialogStore";
+import { Link } from "react-router";
 
 const SOCIAL_LINKS = [
   {
@@ -25,10 +27,10 @@ const SOCIAL_LINKS = [
 ];
 
 const STATS = [
-  { text: "100% Human", icon: "🧬" },
-  { text: "Solution Maker", icon: "⚙️" },
-  { text: "Environment Adaptability", icon: "🌍" },
-  { text: "One Year Experience", icon: "⏳" },
+  { text: "100% Human", icon: "🧬", eventId: "ONE_HUNDRED_PERCENT_HUMAN" },
+  { text: "Solution Maker", icon: "⚙️", eventId: "SOLUTION_MAKER" },
+  { text: "Environment Adaptability", icon: "🌍", eventId: "ENVIRONMENT_ADAPTABILITY" },
+  { text: "One Year Experience", icon: "⏳", eventId: "ONE_YEAR_EXPERIENCE" },
 ];
 
 export const HeroSection = () => {
@@ -53,7 +55,9 @@ export const HeroSection = () => {
         <div className="relative group w-fit">
           <div className="absolute -left-4 top-1/2 -translate-y-1/2 w-2 h-2 bg-hextech-gold rotate-45 opacity-50 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_10px_#c8aa6e]"></div>
           <div className="absolute -right-4 top-1/2 -translate-y-1/2 w-2 h-2 bg-hextech-gold rotate-45 opacity-50 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_10px_#c8aa6e]"></div>
-          <Button variant="hextech">Contact Me</Button>
+          <Button variant="hextech" asChild>
+            <Link to="/contact">Contact Me</Link>
+          </Button>
         </div>
       </div>
 
@@ -83,7 +87,7 @@ export const HeroSection = () => {
                 <h3 className="text-hextech-gold text-xs font-bold tracking-[0.25em] uppercase">
                   Info and Links
                 </h3>
-                <span className="text-[10px] text-hextech-bronze font-mono">V.4.2</span>
+                <span className="text-[10px] text-hextech-bronze font-mono">I kind of videcoded this</span>
               </div>
 
               {/* List Items */}
@@ -91,7 +95,8 @@ export const HeroSection = () => {
                 {STATS.map((item, index) => (
                   <li
                     key={index}
-                    className="group/item flex items-center justify-between p-3 rounded-sm border border-transparent hover:border-hextech-gold/30 hover:bg-linear-to-r hover:from-hextech-gold/5 hover:to-transparent transition-all duration-300 cursor-default"
+                    onClick={() => useDialogStore.getState().handleEvent(item.eventId)}
+                    className="group/item flex items-center justify-between p-3 rounded-sm border border-transparent hover:border-hextech-gold/30 hover:bg-linear-to-r hover:from-hextech-gold/5 hover:to-transparent transition-all duration-300 cursor-default active:scale-98"
                   >
                     <div className="flex items-center gap-4">
                       <div className="relative flex items-center justify-center w-6 h-6">

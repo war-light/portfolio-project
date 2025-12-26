@@ -1,7 +1,36 @@
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
 
-const RandomRuneImage = () => <div className="text-4xl text-hextech-gold">ᚠ</div>;
+const runes = [
+  "ᚨ",
+  "ᚠ",
+  "ᚢ",
+  "ᚦ",
+  "ᚱ",
+  "ᚲ",
+  "ᚷ",
+  "ᚹ",
+  "ᚺ",
+  "ᚾ",
+  "ᛁ",
+  "ᛃ",
+  "ᛇ",
+  "ᛈ",
+  "ᛉ",
+  "ᛊ",
+  "ᛏ",
+  "ᛒ",
+  "ᛖ",
+  "ᛗ",
+  "ᛚ",
+  "ᛜ",
+  "ᛞ",
+  "ᛟ",
+];
+const RandomRuneImage = () => {
+  const rune = runes[Math.floor(Math.random() * runes.length)];
+  return <div className="animate-pulse text-4xl text-hextech-gold select-none">{rune}</div>;
+};
 
 interface SkillBoxProps {
   iconName: string;
@@ -20,7 +49,7 @@ export default function SkillBox({ iconName }: SkillBoxProps) {
         className={`relative w-full h-full transition-transform duration-500 transform-3d ${flipped ? "transform-[rotateY(180deg)]" : ""}`}
       >
         {/* Front */}
-        <Card className="absolute inset-0 border-hextech-bronze bg-linear-to-b from-[#1e2328] to-hextech-black backface-hidden flex flex-col items-center justify-between p-0 hover:border-hextech-gold hover:shadow-[0_0_15px_rgba(200,170,110,0.3)] transition-all">
+        <Card className="absolute inset-0 border-hextech-bronze bg-linear-to-b from-neutral-900 to-hextech-black backface-hidden flex flex-col items-center justify-between p-0 hover:border-hextech-gold hover:shadow-[0_0_15px_rgba(200,170,110,0.3)] transition-all">
           <div className="grow flex items-center justify-center pt-2">
             <img src={`${iconSource}${iconName}`} alt={iconName} className="w-10 h-10 drop-shadow-md" />
           </div>
@@ -33,7 +62,7 @@ export default function SkillBox({ iconName }: SkillBoxProps) {
 
         {/* Back */}
         <Card className="absolute inset-0 border-hextech-gold bg-hextech-black transform-[rotateY(180deg)] backface-hidden flex items-center justify-center shadow-[0_0_15px_#c8aa6e]">
-          <div className="opacity-80 sepia brightness-125 animate-pulse">
+          <div className="opacity-80 sepia brightness-125 animate-shake">
             <RandomRuneImage />
           </div>
         </Card>

@@ -1,4 +1,5 @@
-import { Link } from "react-router"; // or react-router-dom
+import { useDialogStore } from "@/stores/useDialogStore";
+import { Link } from "react-router";
 
 const Footer = () => {
   return (
@@ -24,7 +25,10 @@ const Footer = () => {
           <div className="flex items-center gap-3">
             <h3 className="text-hextech-light text-lg font-bold tracking-widest uppercase">David G</h3>
           </div>
-          <p className="text-hextech-bronze text-sm leading-relaxed max-w-xs font-serif italic">
+          <p
+            className="text-hextech-bronze text-sm leading-relaxed max-w-xs font-serif italic cursor-pointer"
+            onClick={() => useDialogStore.getState().handleEvent("LOREM_IPSUM")}
+          >
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi dicta, perspiciatis praesentium
             molestias laudantium magni ipsam hic voluptatum velit unde porro, maxime natus aliquid dolore
             iure, quos est neque aliquam!
@@ -37,7 +41,7 @@ const Footer = () => {
             Navigation Uplink
           </h4>
           <nav className="flex flex-col gap-2">
-            <FooterLink to="/" label="Home Base" />
+            <FooterLink to="/" label="Home" />
             <FooterLink to="/curriculum" label="Curriculum Vitae" />
             <FooterLink to="/contact" label="Send Raven" />
           </nav>
@@ -62,8 +66,11 @@ const Footer = () => {
       </div>
 
       {/* --- Bottom Bar --- */}
-      <div className="relative z-10 border-t border-white/5 mt-12 pt-4 text-center">
-        <p className="text-[10px] text-hextech-bronze uppercase tracking-[0.2em] opacity-60 hover:opacity-100 transition-opacity">
+      <div className="relative z-10 border-t border-white/5 mt-12 pt-4 text-center mt-64">
+        <p
+          className="text-[10px] text-hextech-bronze uppercase tracking-[0.2em] opacity-60 hover:opacity-100 transition-opacity"
+          onClick={() => useDialogStore.getState().handleEvent("JD")}
+        >
           Crafted by JD
         </p>
       </div>

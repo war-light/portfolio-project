@@ -1,8 +1,16 @@
 import { Link } from "react-router";
 import { SunIcon } from "@heroicons/react/16/solid";
 import { Button } from "@/components/ui/button";
+import { useDialogStore } from "@/stores/useDialogStore";
 
 const Header = () => {
+  const toggleInteractions = useDialogStore((state) => state.toggleInteractions);
+  const isInteractionsEnabled = useDialogStore((state) => state.isInteractionsEnabled);
+
+  const handleToggle = () => {
+    toggleInteractions();
+  };
+
   return (
     <header className="sticky top-0 z-50 w-full bg-hextech-blue/40 backdrop-blur-md shadow-2xl shadow-black/50 transition-all duration-300">
       {/* Top Highlight (Glass Edge) */}
@@ -37,10 +45,17 @@ const Header = () => {
           </div>
 
           {/* Theme Toggle (Rune Slot Style) */}
-          <Button variant="ghost" size="icon" className="relative group w-fit h-10 hover:bg-transparent">
+          <Button
+            variant="ghost"
+            size="icon"
+            className="relative group w-fit h-10 hover:bg-transparent"
+            onClick={handleToggle}
+          >
             {/* Text */}
-            <span className="uppercase tracking-[0.15em] text-xs font-bold text-[#a09b8c] group-hover:text-hextech-light transition-colors duration-300 group-hover:drop-shadow-[0_0_5px_rgba(240,230,210,0.5)]">
-              Deploy guide
+            <span
+              className={`uppercase tracking-[0.15em] text-xs font-bold transition-colors duration-300 group-hover:drop-shadow-[0_0_5px_rgba(240,230,210,0.5)] ${isInteractionsEnabled ? "text-[#a09b8c] group-hover:text-hextech-light" : "text-hextech-bronze opacity-50"}`}
+            >
+              {isInteractionsEnabled ? "Disable Interactions" : "Enable Interactions"}
             </span>
             {/* Hover Effects */}
             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-hextech-gold group-hover:w-full transition-all duration-300 shadow-[0_0_8px_#c8aa6e]" />
@@ -53,9 +68,16 @@ const Header = () => {
             <div className="absolute inset-0 bg-hextech-gold/10 rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 blur-md" />
 
             {/* Hexagon Border (Optional visual) */}
-            <div className="absolute inset-0 border border-hextech-bronze/30 rotate-45 scale-75 group-hover:border-hextech-gold group-hover:rotate-90 transition-all duration-500" />
+            <div className="absolute inset-0 border border-hextech-bronze/30 rotate-45 scale-75 group-hover:border-hextech-gold group-hover:rotate-90 transition-all duration-500 active:animate-shake" />
 
-            <SunIcon className="relative z-10 w-5 h-5 text-hextech-bronze group-hover:text-hextech-light group-hover:drop-shadow-[0_0_8px_rgba(200,170,110,1)] transition-all duration-300" />
+            <SunIcon
+              className="relative z-10 w-5 h-5 text-hextech-bronze group-hover:text-hextech-light group-hover:drop-shadow-[0_0_8px_rgba(200,170,110,1)] transition-all duration-300 active:animate-shake"
+              onClick={() =>
+                useDialogStore.getState().isBrokenMode
+                  ? useDialogStore.getState().handleEvent("LIGHT_MODE_BROKEN")
+                  : useDialogStore.getState().handleEvent("LIGHT_MODE")
+              }
+            />
           </Button>
         </div>
       </div>
