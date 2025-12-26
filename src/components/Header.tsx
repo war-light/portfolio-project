@@ -64,21 +64,23 @@ const Header = () => {
             {/* Top decorative dot appearing on hover */}
             <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-1 h-1 bg-hextech-gold rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-[0_0_5px_#c8aa6e]" />
           </Button>
-          <Button variant="ghost" size="icon" className="relative group w-10 h-10 hover:bg-transparent">
+          <Button
+            variant="ghost"
+            size="icon"
+            className="relative group w-10 h-10 hover:bg-transparent"
+            onClick={() =>
+              useDialogStore.getState().isBrokenMode
+                ? useDialogStore.getState().handleEvent("LIGHT_MODE_BROKEN")
+                : useDialogStore.getState().handleEvent("LIGHT_MODE")
+            }
+          >
             {/* Hover Glow Background */}
             <div className="absolute inset-0 bg-hextech-gold/10 rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 blur-md" />
 
             {/* Hexagon Border */}
-            <div className="absolute inset-0 border border-hextech-bronze/30 rotate-45 scale-75 group-hover:border-hextech-gold group-hover:rotate-90 transition-all duration-500 active:animate-shake" />
+            <div className="absolute inset-0 border border-hextech-bronze/30 rotate-45 scale-75 group-hover:border-hextech-gold group-hover:rotate-90 transition-all duration-500 group-active:animate-shake" />
 
-            <SunIcon
-              className="relative z-10 w-5 h-5 text-hextech-bronze group-hover:text-hextech-light group-hover:drop-shadow-[0_0_8px_rgba(200,170,110,1)] transition-all duration-300 active:animate-shake"
-              onClick={() =>
-                useDialogStore.getState().isBrokenMode
-                  ? useDialogStore.getState().handleEvent("LIGHT_MODE_BROKEN")
-                  : useDialogStore.getState().handleEvent("LIGHT_MODE")
-              }
-            />
+            <SunIcon className="relative z-10 w-5 h-5 text-hextech-bronze group-hover:text-hextech-light group-hover:drop-shadow-[0_0_8px_rgba(200,170,110,1)] transition-all duration-300 group-active:animate-shake" />
           </Button>
         </div>
       </div>

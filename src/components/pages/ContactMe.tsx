@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useGlitchStyle } from "@/hooks/useGlitchStyle";
 import { useDialogStore } from "@/stores/useDialogStore";
 import emailjs from "@emailjs/browser";
 import { FormEvent, useRef, useState } from "react";
@@ -8,6 +9,8 @@ export default function ContactMe() {
   const [isSent, setIsSent] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const form = useRef<HTMLFormElement>(null);
+  const isBrokenMode = useDialogStore((state) => state.isBrokenMode);
+  const glitchStyle = useGlitchStyle();
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -37,11 +40,25 @@ export default function ContactMe() {
   };
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center p-4 bg-hextech-black relative overflow-hidden font-literata">
-      {/* Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#1a1a1a_0%,#000000_100%)] pointer-events-none" />
+    <div className="min-h-screen bg-hextech-black flex flex-col relative font-literata">
+      {/* Background Ambience */}
+      <div className="fixed inset-0 bg-[radial-gradient(circle_at_top,#1e2328_0%,#0a0a0c_100%)] -z-10" />
+      <div className="fixed inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-50" />
 
-      <main className="relative z-10 w-full max-w-5xl flex flex-col md:flex-row shadow-2xl border border-white/10">
+      {/* Broken Light Mode Effect */}
+      {useDialogStore((state) => state.isBrokenMode) && (
+        <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+          <div
+            className="absolute inset-0 bg-white clip-path-polygon-[0_0,50%_0,40%_100%,0_100%] animate-in fade-in duration-1000"
+            style={{ clipPath: "polygon(0 0, 50% 0, 40% 100%, 0 100%)" }}
+          ></div>
+        </div>
+      )}
+
+      <main
+        className={`relative z-10 w-full max-w-5xl flex flex-col md:flex-row shadow-2xl border border-white/10 mx-auto my-auto hextech-section-wrapper ${isBrokenMode ? "hextech-glitch" : ""}`}
+        style={isBrokenMode ? glitchStyle : undefined}
+      >
         {/* Left Panel */}
         <div className="w-full md:w-5/12 bg-[#111] p-10 flex flex-col justify-between border-b md:border-b-0 md:border-r border-white/10 relative overflow-hidden">
           <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-linear-to-b from-transparent via-hextech-gold to-transparent opacity-60" />

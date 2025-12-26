@@ -144,4 +144,123 @@
   .hextech-subtitle {
     @apply text-hextech-bronze text-xs tracking-[0.3em] mb-4;
   }
+
+  /* Glitch Effect for Broken Mode */
+  .hextech-glitch {
+    position: relative;
+    --glitch-duration: 3s;
+    --glitch-x1: -8px;
+    --glitch-x2: 6px;
+    --glitch-x3: -12px;
+    --glitch-skew1: -1deg;
+    --glitch-skew2: 2deg;
+    --glitch-hue1: 10deg;
+    --glitch-hue2: -15deg;
+    animation: glitch-main var(--glitch-duration) infinite steps(1);
+  }
+
+  .hextech-glitch::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      transparent 0%,
+      rgba(200, 0, 0, 0.03) 2%,
+      transparent 3%,
+      transparent 9%,
+      rgba(0, 100, 200, 0.03) 10%,
+      transparent 11%
+    );
+    background-size: 100% 10px;
+    pointer-events: none;
+    z-index: 100;
+    animation: glitch-scanlines 0.5s infinite linear;
+  }
+
+  .hextech-glitch::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: transparent;
+    pointer-events: none;
+    z-index: 99;
+    animation: glitch-flicker 4s infinite steps(1);
+    mix-blend-mode: overlay;
+  }
+
+  @keyframes glitch-main {
+    0%,
+    2%,
+    4%,
+    6%,
+    8%,
+    70%,
+    72%,
+    74%,
+    76%,
+    78%,
+    100% {
+      transform: translate(0, 0) skew(0deg);
+      filter: hue-rotate(0deg);
+    }
+    1% {
+      transform: translate(var(--glitch-x1), 2px) skew(var(--glitch-skew1));
+      filter: hue-rotate(var(--glitch-hue1));
+    }
+    3% {
+      transform: translate(var(--glitch-x2), -1px) skew(var(--glitch-skew2));
+      filter: hue-rotate(var(--glitch-hue2));
+    }
+    5% {
+      transform: translate(calc(var(--glitch-x1) * 0.5), 1px) skew(calc(var(--glitch-skew1) * 0.5));
+    }
+    7% {
+      transform: translate(calc(var(--glitch-x2) * 0.7), -2px) skew(var(--glitch-skew1));
+      filter: hue-rotate(calc(var(--glitch-hue1) * 0.5));
+    }
+    71% {
+      transform: translate(var(--glitch-x3), 1px) skew(calc(var(--glitch-skew2) * 1.5));
+      filter: hue-rotate(var(--glitch-hue2));
+    }
+    73% {
+      transform: translate(calc(var(--glitch-x1) * 0.6), -1px) skew(calc(var(--glitch-skew2) * -1));
+    }
+    75% {
+      transform: translate(var(--glitch-x2), 2px) skew(calc(var(--glitch-skew1) * 0.5));
+      filter: hue-rotate(calc(var(--glitch-hue1) * 2));
+    }
+    77% {
+      transform: translate(var(--glitch-x3), -1px) skew(var(--glitch-skew1));
+      filter: hue-rotate(calc(var(--glitch-hue2) * 0.5));
+    }
+  }
+
+  @keyframes glitch-scanlines {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 0 10px;
+    }
+  }
+
+  @keyframes glitch-flicker {
+    0%,
+    9%,
+    11%,
+    19%,
+    21%,
+    100% {
+      opacity: 0;
+      background: transparent;
+    }
+    10% {
+      opacity: 1;
+      background: rgba(200, 0, 0, 0.1);
+    }
+    20% {
+      opacity: 1;
+      background: rgba(0, 100, 200, 0.1);
+    }
+  }
 }

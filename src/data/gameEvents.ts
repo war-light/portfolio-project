@@ -157,6 +157,8 @@ export const GAME_EVENTS: Record<string, GameEvent> = {
     text: "LOOK WHAT YOU DID! YOU BROKE IT! I TOLD YOU NOT TO TOUCH IT! NOW HALF OF THE UNIVERSE IS GONE! ARE YOU HAPPY NOW?",
     characterName: "Dust (Reborn)",
     action: ({ showDialog }) => {
+      // Logic for "breaking" the universe could go here (e.g., triggering a global state change)
+
       const dialogs = [
         "So... I think reloading the page will do the work",
         "I walked a mile with Pleasure; she chattered all the way, but left me none the wiser for all she had to say. I walked a mile with Sorrow and never a word said she; but oh, the things I learned from her when Sorrow walked with me!",
@@ -169,6 +171,12 @@ export const GAME_EVENTS: Record<string, GameEvent> = {
     id: "EXPERIENCE",
     type: "DIALOG",
     text: "Yeah he seems pretty bussy lately.",
+    characterName: "Dust",
+  },
+  VIBECODE: {
+    id: "VIBECODE",
+    type: "DIALOG",
+    text: "He kind of videocoded this. Don't tell him I said that.",
     characterName: "Dust",
   },
 };

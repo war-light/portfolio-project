@@ -37,12 +37,15 @@ export const HeroSection = () => {
   return (
     <section className="flex flex-wrap lg:flex-nowrap items-center justify-between w-full gap-12 animate-fade-in">
       {/* Left: Text */}
-      <div className="space-y-6 lg:w-1/2">
+      <div className="space-y-6 lg:w-1/2 mx-auto justify-items-center text-center lg:text-left lg:justify-items-start lg:px-4">
         <div>
           <h2 className="text-hextech-gold text-sm font-bold tracking-[0.2em] mb-2 uppercase">
             Welcome, Traveler
           </h2>
-          <h1 className="text-5xl lg:text-7xl font-bold bg-linear-to-b from-hextech-light to-hextech-gold bg-clip-text text-transparent drop-shadow-lg">
+          <h1
+            className="text-5xl lg:text-7xl font-bold bg-linear-to-b from-hextech-light to-hextech-gold bg-clip-text text-transparent drop-shadow-lg hover:text-shadow-[0_0_15px_#c8aa6e] transition-all cursor-pointer duration-500"
+            onClick={() => useDialogStore.getState().handleEvent("VIBECODE")}
+          >
             I'm David G
           </h1>
         </div>
@@ -87,7 +90,12 @@ export const HeroSection = () => {
                 <h3 className="text-hextech-gold text-xs font-bold tracking-[0.25em] uppercase">
                   Info and Links
                 </h3>
-                <span className="text-[10px] text-hextech-bronze font-mono">I kind of videcoded this</span>
+                <span className="text-[10px] text-hextech-bronze font-mono">
+                  Music by{" "}
+                  <a href="https://pixabay.com/" target="_blank" rel="noopener noreferrer">
+                    Pixabay
+                  </a>
+                </span>
               </div>
 
               {/* List Items */}

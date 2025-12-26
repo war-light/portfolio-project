@@ -1,8 +1,17 @@
 import { Card } from "@/components/ui/card";
+import { useGlitchStyle } from "@/hooks/useGlitchStyle";
+import { useDialogStore } from "@/stores/useDialogStore";
 
 export const AboutSection = () => {
+  const isBrokenMode = useDialogStore((state) => state.isBrokenMode);
+  const glitchStyle = useGlitchStyle();
+
   return (
-    <section id="about" className="hextech-section-wrapper">
+    <section
+      id="about"
+      className={`hextech-section-wrapper ${isBrokenMode ? "hextech-glitch" : ""}`}
+      style={isBrokenMode ? glitchStyle : undefined}
+    >
       <div className="hextech-bg-decoration" />
       <Card className="hextech-card">
         {/* Corner Accents */}

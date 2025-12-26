@@ -42,7 +42,7 @@ const Footer = () => {
           </h4>
           <nav className="flex flex-col gap-2">
             <FooterLink to="/" label="Home" />
-            <FooterLink to="/curriculum" label="Curriculum Vitae" />
+            <FooterLink to="/curriculum" label="Curriculum" />
             <FooterLink to="/contact" label="Send Raven" />
           </nav>
         </div>

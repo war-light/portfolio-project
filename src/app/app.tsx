@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import Layout from "../components/Layout";
 import ContactMe from "../components/pages/ContactMe";
 import Home from "../components/pages/Home/Home";
+import MusicPlayer from "../components/ui/MusicPlayer";
 import { useDialogStore } from "../stores/useDialogStore";
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
+      <MusicPlayer />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
