@@ -171,10 +171,4 @@ export const GAME_EVENTS: Record<string, GameEvent> = {
     text: "Yeah he seems pretty bussy lately.",
     characterName: "Dust",
   },
-  // Example of an action event
-  OPEN_GITHUB: {
-    id: "OPEN_GITHUB",
-    type: "ACTION",
-    action: () => window.open("https://github.com/honor", "_blank"),
-  },
 };
