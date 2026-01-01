@@ -3,6 +3,9 @@ A personal portfolio website, slightly inspired by the aesthetic from _League of
 
 - **Interactive Dialog System**: A JRPG-style dialog system where "Dust" (the guide) interacts with the user.
 
+## Check it out
+[war-light.github.io/portfolio-project/](https://war-light.github.io/portfolio-project/)
+
 ## ✅ To do:
 
 - **Responsive Design**: Optimize for all devices, from mobile scrolls to desktop displays.
