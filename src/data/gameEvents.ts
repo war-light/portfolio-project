@@ -67,7 +67,7 @@ export const GAME_EVENTS: Record<string, GameEvent> = {
   LOCATION: {
     id: "LOCATION",
     type: "DIALOG",
-    text: "Don't tell anybody. We like our piece of privacy.",
+    text: "Don't tell anybody. We like our privacy.",
     characterName: "Dust",
   },
   LOREM_IPSUM: {
