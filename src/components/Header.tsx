@@ -32,7 +32,7 @@ const Header = () => {
           <div className="hidden md:flex items-center gap-8">
             <NavLink to="/" label="Home" />
             <NavLink to="/contact" label="Contact" />
-            <NavLink to="/curriculum" label="Curriculum" />
+            <ExternalNavLink href="https://docs.google.com/document/d/1ncl0B-f3oX_UJAN5122bfg4JNfW_fW1p/edit?usp=sharing&ouid=116740435284693223769&rtpof=true&sd=true" label="Resume" />
           </div>
         </nav>
 
@@ -111,6 +111,26 @@ const NavLink = ({ to, label }: { to: string; label: string }) => (
     {/* Top decorative dot appearing on hover */}
     <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-1 h-1 bg-hextech-gold rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-[0_0_5px_#c8aa6e]" />
   </Link>
+);
+
+const ExternalNavLink = ({ href, label }: { href: string; label: string }) => (
+  <a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="group relative h-full flex items-center justify-center px-2 py-1"
+  >
+    {/* Text */}
+    <span className="uppercase tracking-[0.15em] text-xs font-bold text-[#a09b8c] group-hover:text-hextech-light transition-colors duration-300 group-hover:drop-shadow-[0_0_5px_rgba(240,230,210,0.5)]">
+      {label}
+    </span>
+
+    {/* Hover Effects */}
+    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-hextech-gold group-hover:w-full transition-all duration-300 shadow-[0_0_8px_#c8aa6e]" />
+
+    {/* Top decorative dot appearing on hover */}
+    <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-1 h-1 bg-hextech-gold rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-[0_0_5px_#c8aa6e]" />
+  </a>
 );
 
 export default Header;
