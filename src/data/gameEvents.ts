@@ -176,7 +176,7 @@ export const GAME_EVENTS: Record<string, GameEvent> = {
   VIBECODE: {
     id: "VIBECODE",
     type: "DIALOG",
-    text: "He kind of videocoded this. Don't tell him I said that.",
+    text: "He kind of vibecoded this. Don't tell anyone I said that.",
     characterName: "Dust",
   },
 };
