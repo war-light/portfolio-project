@@ -18,11 +18,13 @@ const ScrollToTop = () => {
 
 const App = () => {
   const { showDialog, setInteractionsEnabled } = useDialogStore();
-
+  const baseUrl = import.meta.env.BASE_URL;
   useEffect(() => {
     setInteractionsEnabled(true);
     showDialog(
-      "Welcome! I am Dust, and I will help you with your questions. The only thing you have to do is to click wherever you want. There is a button in the top right corner to disable my comments, if you get tired of me."
+      "Welcome! I am Dust, and I will help you with your questions. The only thing you have to do is to click wherever you want. There is a button in the top right corner to disable my comments, if you get tired of me.",
+      "Dust",
+      `${baseUrl}mage/mage_chill.png`
     );
   }, []);
 

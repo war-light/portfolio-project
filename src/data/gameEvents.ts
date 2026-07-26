@@ -23,7 +23,7 @@ export const GAME_EVENTS: Record<string, GameEvent> = {
     type: "DIALOG",
     text: "Welcome! I am Dust, and I will help you with your questions. The only thing you have to do is to click wherever you want.",
     characterName: "Dust",
-    characterImage: `${import.meta.env.BASE_URL}fonts/mage/mage_chill.png`,
+    characterImage: `${import.meta.env.BASE_URL}mage/mage_chill.png`,
   },
   TOGGLE_INTERACTIONS_ON: {
     id: "TOGGLE_INTERACTIONS_ON",
