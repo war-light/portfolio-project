@@ -22,7 +22,7 @@ const App = () => {
   useEffect(() => {
     setInteractionsEnabled(true);
     showDialog(
-      "Welcome to my portfolio! I am Dust, I will help you with your questions, as it's my purpose. The only thing you have to do is to click wherever you want. There is a button in the top right corner to disable me, if you need it."
+      "Welcome! I am Dust, and I will help you with your questions. The only thing you have to do is to click wherever you want. There is a button in the top right corner to disable my comments, if you get tired of me."
     );
   }, []);
 
