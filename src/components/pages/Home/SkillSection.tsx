@@ -5,7 +5,7 @@ import SkillBox from "./SkillBox";
 
 const SKILLS = {
   languages: ["js", "ts", "python", "mysql", "bash"],
-  webTools: ["html", "css", "tailwind", "bootstrap", "react", "nodejs", "flask", "htmx"],
+  webTools: ["html", "css", "tailwind", "bootstrap", "react", "nextjs", "nodejs", "flask", "htmx"],
   productivity: ["docker", "git", "vscode", "vim"],
 };
 

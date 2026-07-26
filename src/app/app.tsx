@@ -1,10 +1,20 @@
-import { useEffect } from "react";
-import { BrowserRouter, Route, Routes } from "react-router";
+import { useEffect, useLayoutEffect } from "react";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router";
 import Layout from "../components/Layout";
 import ContactMe from "../components/pages/ContactMe";
 import Home from "../components/pages/Home/Home";
 import MusicPlayer from "../components/ui/MusicPlayer";
 import { useDialogStore } from "../stores/useDialogStore";
+
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, [pathname]);
+
+  return null;
+};
 
 const App = () => {
   const { showDialog, setInteractionsEnabled } = useDialogStore();
@@ -18,6 +28,7 @@ const App = () => {
 
   return (
     <BrowserRouter basename={import.meta.env.BASE_URL}>
+      <ScrollToTop />
       <MusicPlayer />
       <Routes>
         <Route path="/" element={<Layout />}>

@@ -21,8 +21,9 @@ export const GAME_EVENTS: Record<string, GameEvent> = {
   WELCOME: {
     id: "WELCOME",
     type: "DIALOG",
-    text: "Welcome to my portfolio! I am Dust, I will help you with your questions, as it's my purpose. The only thing you have to do is to click wherever you want.",
+    text: "Welcome! I am Dust, and I will help you with your questions. The only thing you have to do is to click wherever you want.",
     characterName: "Dust",
+    characterImage: `${import.meta.env.BASE_URL}fonts/mage/mage_chill.png`,
   },
   TOGGLE_INTERACTIONS_ON: {
     id: "TOGGLE_INTERACTIONS_ON",
@@ -58,9 +59,7 @@ export const GAME_EVENTS: Record<string, GameEvent> = {
     id: "ONE_HUNDRED_PERCENT_HUMAN",
     type: "DIALOG",
     text: [
-      "This should not be a surprise. His friends will tell you he is kind of silly, though.",
-      "I guess he's not the only one who thinks so.",
-      "Why would you even question this?",
+      "AI is changing the way we build software. But good software is still orchestrated by human reasoning and strong grasp in architecture and design.",
     ],
     characterName: "Dust",
   },
