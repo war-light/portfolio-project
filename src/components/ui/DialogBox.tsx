@@ -50,7 +50,7 @@ const DialogBox = () => {
           </div>
 
           {/* Dialog Text Area */}
-          <div className="flex-1 p-4 md:p-6 flex flex-col justify-between min-h-32 max-h-32 md:min-h-48 overflow-auto [scrollbar-width:none]">
+          <div className="flex-1 p-4 md:p-6 flex flex-col justify-between min-h-32 max-h-32 md:min-h-48 overflow-auto scrollbar-none">
             {/* Character Name */}
             {characterName && (
               <div className="text-hextech-gold font-bold uppercase tracking-widest text-sm mb-2 md:mb-3 text-glow">

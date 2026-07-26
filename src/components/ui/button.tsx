@@ -9,7 +9,7 @@ const buttonVariants = cva(
       variant: {
         ghost: "hover:bg-hextech-gold/10 hover:text-hextech-gold",
         hextech:
-          "relative border border-hextech-bronze bg-gradient-to-b from-[#1e2328] to-hextech-black text-hextech-gold shadow-[inset_0_0_10px_#000] hover:border-hextech-gold hover:text-hextech-light hover:shadow-[0_0_15px_rgba(200,170,110,0.3)] active:border-white",
+          "relative border border-hextech-bronze bg-linear-to-b from-[#1e2328] to-hextech-black text-hextech-gold shadow-[inset_0_0_10px_#000] hover:border-hextech-gold hover:text-hextech-light hover:shadow-[0_0_15px_rgba(200,170,110,0.3)] active:border-white",
       },
       size: {
         default: "h-12 px-8 py-3",
