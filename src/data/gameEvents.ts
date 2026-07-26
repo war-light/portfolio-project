@@ -127,7 +127,7 @@ export const GAME_EVENTS: Record<string, GameEvent> = {
   SKILL_INVENTORY: {
     id: "SKILL_INVENTORY",
     type: "DIALOG",
-    text: "He really thinks those skill boxes are still cool. I have seen them in a dozen portfolios already. Also, flipping the cards has no purpose. I wonder where did he learned UX design.",
+    text: "The skill boxes and card flipping feel overused in modern portfolios. I question the UX rationale behind these interactive elements.",
     characterName: "Dust",
     characterImage: `${baseImageUrl}mage_chill.png`,
   },
