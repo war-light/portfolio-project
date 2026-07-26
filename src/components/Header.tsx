@@ -6,6 +6,7 @@ import { useDialogStore } from "@/stores/useDialogStore";
 const Header = () => {
   const toggleInteractions = useDialogStore((state) => state.toggleInteractions);
   const isInteractionsEnabled = useDialogStore((state) => state.isInteractionsEnabled);
+  const resumeUrl = import.meta.env.VITE_RESUME_URL;
 
   const handleToggle = () => {
     toggleInteractions();
@@ -32,7 +33,7 @@ const Header = () => {
           <div className="hidden md:flex items-center gap-8">
             <NavLink to="/" label="Home" />
             <NavLink to="/contact" label="Contact" />
-            <ExternalNavLink href="https://docs.google.com/document/d/1ncl0B-f3oX_UJAN5122bfg4JNfW_fW1p/edit?usp=sharing&ouid=116740435284693223769&rtpof=true&sd=true" label="Resume" />
+            <ExternalNavLink href={resumeUrl} label="Resume" />
           </div>
         </nav>
 

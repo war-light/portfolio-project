@@ -2,6 +2,8 @@ import { useDialogStore } from "@/stores/useDialogStore";
 import { Link } from "react-router";
 
 const Footer = () => {
+  const resumeUrl = import.meta.env.VITE_RESUME_URL;
+
   return (
     <footer className="relative mt-auto w-full bg-[#050505] pt-12 pb-8 overflow-hidden font-literata">
       {/* --- Top Decorative Border --- */}
@@ -42,7 +44,7 @@ const Footer = () => {
           </h4>
           <nav className="flex flex-col gap-2">
             <FooterLink to="/" label="Home" />
-            <FooterLink to="/resume" label="Resume" />
+            <FooterLink to="/resume" label="Resume" href={resumeUrl} />
             <FooterLink to="/contact" label="Send Raven" />
           </nav>
         </div>
@@ -66,7 +68,7 @@ const Footer = () => {
       </div>
 
       {/* --- Bottom Bar --- */}
-      <div className="relative z-10 border-t border-white/5 mt-12 pt-4 text-center mt-64">
+      <div className="relative z-10 border-t border-white/5 mt-12 pt-4 text-center">
         <p
           className="text-[10px] text-hextech-bronze uppercase tracking-[0.2em] opacity-60 hover:opacity-100 transition-opacity"
           onClick={() => useDialogStore.getState().handleEvent("JD")}
@@ -78,15 +80,37 @@ const Footer = () => {
   );
 };
 
+interface FooterLinkProps {
+  to?: string;
+  label: string;
+  href?: string;
+}
+
 // Helper Component for Links
-const FooterLink = ({ to, label }: { to: string; label: string }) => (
-  <Link
-    to={to}
-    className="text-hextech-light/60 hover:text-hextech-gold text-sm transition-colors duration-300 flex items-center gap-2 group w-fit"
-  >
-    <span className="w-1 h-1 bg-hextech-gold rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-    {label}
-  </Link>
-);
+const FooterLink = ({ to, label, href }: FooterLinkProps) => {
+  const className =
+    "text-hextech-light/60 hover:text-hextech-gold text-sm transition-colors duration-300 flex items-center gap-2 group w-fit";
+
+  const content = (
+    <>
+      <span className="w-1 h-1 bg-hextech-gold rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+      {label}
+    </>
+  );
+
+  if (href) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" className={className}>
+        {content}
+      </a>
+    );
+  }
+
+  return (
+    <Link to={to || "#"} className={className}>
+      {content}
+    </Link>
+  );
+};
 
 export default Footer;
